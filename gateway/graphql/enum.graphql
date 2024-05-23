@@ -1,0 +1,9 @@
+enum LoginResponse {
+    NORMAL
+    OAUTH
+}
+
+enum OpenAuthorizeProvider {
+    FACEBOOK
+    GOOGLE
+}

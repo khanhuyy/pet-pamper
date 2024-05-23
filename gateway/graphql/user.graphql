@@ -1,0 +1,15 @@
+type UserQuery {
+    get(id: ID!): User
+    list(request: String): ListUserResponse!
+}
+
+type ListUserResponse {
+    products: [User!]
+    pagination: PaginationResponse!
+}
+
+type User {
+    id: ID!
+    name: String!
+    type: String!
+}

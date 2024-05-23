@@ -1,0 +1,36 @@
+# .gqlgen.yml example
+#
+# Refer to https://gqlgen.com/config/
+# for detailed .gqlgen.yml documentation.
+
+schema: "gateway/graphql/*.graphql"
+
+exec:
+  filename: api/server_gen.go
+  package: api
+
+model:
+  filename: model/models_gen.go
+  package: model
+
+resolver:
+  layout: follow-schema
+  dir: resolver
+  package: resolver
+  filename_template: "{name}.resolver.go"
+
+models:
+  ID:
+    model:
+      - github.com/99designs/gqlgen/graphql.ID
+      - github.com/99designs/gqlgen/graphql.Int
+      - github.com/99designs/gqlgen/graphql.Int64
+      - github.com/99designs/gqlgen/graphql.Int32
+  Int:
+    model:
+      - github.com/99designs/gqlgen/graphql.Int
+      - github.com/99designs/gqlgen/graphql.Int64
+      - github.com/99designs/gqlgen/graphql.Int32
+  UUID:
+    model:
+      - github.com/99designs/gqlgen/graphql.UUID

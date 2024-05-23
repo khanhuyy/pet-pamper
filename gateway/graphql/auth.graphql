@@ -1,0 +1,27 @@
+type AuthMutation {
+    login(request: NormalLoginRequest!): AuthResponse!
+    logout(request: NormalLoginRequest!): AuthResponse!
+    openAuthorize(request: OpenAuthorizeRequest!): AuthResponse!
+    signUp(request: NormalSignUpRequest!): AuthResponse!
+}
+
+input OpenAuthorizeRequest {
+    token: String!
+    provider: OpenAuthorizeProvider!
+}
+
+input NormalLoginRequest {
+    email: String!
+    password: String!
+}
+
+input NormalSignUpRequest {
+    email: String!
+    password: String!
+}
+
+type AuthResponse {
+    token: String!
+}
+
+

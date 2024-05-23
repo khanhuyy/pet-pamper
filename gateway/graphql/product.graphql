@@ -1,0 +1,30 @@
+type ProductMutation {
+    create(request: CreateProductRequest!): Boolean!
+}
+
+type ProductQuery {
+    get(id: ID!): Product
+    list(request: String): ListProductResponse!
+}
+
+input CreateProductRequest {
+    name: String!
+    something: [String]
+}
+
+type ListProductResponse {
+    products: [Product!]
+    pagination: PaginationResponse!
+}
+
+type PaginationResponse {
+    total: Int64!
+    offset: Int64!
+    limit: Int64!
+}
+
+type Product {
+    id: ID!
+    name: String!
+    type: String!
+}

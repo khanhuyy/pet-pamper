@@ -1,0 +1,30 @@
+directive @goField(forceResolver: Boolean, name: String, omitField: Boolean) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+
+enum ResponseStatus {
+    SUCCESS
+}
+
+interface BaseResponse {
+    code: Int64!
+    status: ResponseStatus!
+    error: String
+}
+
+type Mutation {
+    auth: AuthMutation
+    product: ProductMutation
+}
+
+type Query {
+    user: UserQuery
+    product: ProductQuery
+}
+
+scalar Timestamp
+scalar Uint
+scalar Uint64
+scalar Uint32
+scalar Int64
+scalar Int32
+scalar Upload
+scalar JSON
