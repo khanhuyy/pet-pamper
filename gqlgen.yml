@@ -6,16 +6,16 @@
 schema: "gateway/graphql/*.graphql"
 
 exec:
-  filename: api/server_gen.go
+  filename: gateway/graphql/api/server_gen.go
   package: api
 
 model:
-  filename: model/models_gen.go
+  filename: gateway/graphql/model/models_gen.go
   package: model
 
 resolver:
   layout: follow-schema
-  dir: resolver
+  dir: gateway/graphql/resolver
   package: resolver
   filename_template: "{name}.resolver.go"
 

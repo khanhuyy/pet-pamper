@@ -481,7 +481,7 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "../gateway/graphql/auth.graphql", Input: `type AuthMutation {
+	{Name: "../auth.graphql", Input: `type AuthMutation {
     login(request: NormalLoginRequest!): AuthResponse!
     logout(request: NormalLoginRequest!): AuthResponse!
     openAuthorize(request: OpenAuthorizeRequest!): AuthResponse!
@@ -509,7 +509,7 @@ type AuthResponse {
 
 
 `, BuiltIn: false},
-	{Name: "../gateway/graphql/enum.graphql", Input: `enum LoginResponse {
+	{Name: "../enum.graphql", Input: `enum LoginResponse {
     NORMAL
     OAUTH
 }
@@ -519,7 +519,7 @@ enum OpenAuthorizeProvider {
     GOOGLE
 }
 `, BuiltIn: false},
-	{Name: "../gateway/graphql/product.graphql", Input: `type ProductMutation {
+	{Name: "../product.graphql", Input: `type ProductMutation {
     create(request: CreateProductRequest!): Boolean!
 }
 
@@ -550,7 +550,7 @@ type Product {
     type: String!
 }
 `, BuiltIn: false},
-	{Name: "../gateway/graphql/schema.graphql", Input: `directive @goField(forceResolver: Boolean, name: String, omitField: Boolean) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+	{Name: "../schema.graphql", Input: `directive @goField(forceResolver: Boolean, name: String, omitField: Boolean) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
 
 enum ResponseStatus {
     SUCCESS
@@ -581,7 +581,7 @@ scalar Int32
 scalar Upload
 scalar JSON
 `, BuiltIn: false},
-	{Name: "../gateway/graphql/user.graphql", Input: `type UserQuery {
+	{Name: "../user.graphql", Input: `type UserQuery {
     get(id: ID!): User
     list(request: String): ListUserResponse!
 }
