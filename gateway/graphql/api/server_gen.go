@@ -563,13 +563,13 @@ interface BaseResponse {
 }
 
 type Mutation {
-    auth: AuthMutation
-    product: ProductMutation
+    auth: AuthMutation @goField(forceResolver: true)
+    product: ProductMutation @goField(forceResolver: true)
 }
 
 type Query {
-    user: UserQuery
-    product: ProductQuery
+    user: UserQuery @goField(forceResolver: true)
+    product: ProductQuery @goField(forceResolver: true)
 }
 
 scalar Timestamp

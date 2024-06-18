@@ -6,6 +6,7 @@
 schema: "gateway/graphql/*.graphql"
 
 exec:
+#  layout: follow-schema
   filename: gateway/graphql/api/server_gen.go
   package: api
 
