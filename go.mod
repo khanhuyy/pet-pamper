@@ -3,8 +3,9 @@ module pet-pamper
 go 1.22.2
 
 require (
-	github.com/99designs/gqlgen v0.17.47
-	github.com/vektah/gqlparser/v2 v2.5.12
+	github.com/99designs/gqlgen v0.17.44
+	github.com/mattn/go-sqlite3 v1.14.22
+	github.com/vektah/gqlparser/v2 v2.5.11
 )
 
 require (

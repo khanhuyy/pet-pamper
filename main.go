@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"pet-pamper/database"
 	"pet-pamper/gateway/graphql/resolver"
 
 	"pet-pamper/gateway/graphql/api"
@@ -22,29 +23,17 @@ func main() {
 		port = defaultPort
 	}
 
-	//svr := handler.NewDefaultServer(api.NewExecutableSchema(api.Config{Resolvers: resolver.NewResolver()}))
-	cfg := api.Config{Resolvers: resolver.NewResolver()}
+	db, err := database.InitDB()
+	if err != nil {
+		print(err)
+	}
 
-	//cfg.Directives.Binding = directives.BindingValidator
-	//cfg.Directives.Secured = directives.SecuredDirective
-	//cfg.Directives.StaffSecured = directives.StaffSecuredDirective
-	//cfg.Directives.SellerSecured = directives.SellerSecuredDirective
+	cfg := api.Config{Resolvers: resolver.NewResolver()}
 
 	es := api.NewExecutableSchema(cfg)
 	srv := handler.NewDefaultServer(es)
 	srv.SetErrorPresenter(func(ctx context.Context, err error) *gqlerror.Error {
 		var defErr = graphql.DefaultErrorPresenter(ctx, err)
-		//var st = StatusFromError(err)
-		//if st != nil {
-		//	st, err := st.WithDetails(&errdetails.DebugInfo{
-		//		Detail: err.Error(),
-		//	})
-		//	if err != nil {
-		//		return defErr
-		//	}
-		//	defErr.Message = st.Message()
-		//	defErr.Extensions = map[string]interface{}{"details": st.Details()}
-		//}
 		return defErr
 	})
 	//srv.Use(otelgqlgen.Middleware())

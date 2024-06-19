@@ -12,7 +12,7 @@ interface BaseResponse {
 
 type Mutation {
     auth: AuthMutation @goField(forceResolver: true)
-    product: ProductMutation @goField(forceResolver: true)
+    product: ProductMutation! @goField(forceResolver: true)
 }
 
 type Query {

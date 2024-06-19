@@ -1,11 +1,11 @@
 type UserQuery {
-    get(id: ID!): User
-    list(request: String): ListUserResponse!
+    get(id: ID!): User @goField(forceResolver: true)
+    list(request: String): ListUserResponse! @goField(forceResolver: true)
 }
 
 type ListUserResponse {
-    products: [User!]
-    pagination: PaginationResponse!
+    products: [User!] @goField(forceResolver: true)
+    pagination: PaginationResponse! @goField(forceResolver: true)
 }
 
 type User {

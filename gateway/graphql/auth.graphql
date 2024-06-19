@@ -1,8 +1,8 @@
 type AuthMutation {
-    login(request: NormalLoginRequest!): AuthResponse!
-    logout(request: NormalLoginRequest!): AuthResponse!
-    openAuthorize(request: OpenAuthorizeRequest!): AuthResponse!
-    signUp(request: NormalSignUpRequest!): AuthResponse!
+    login(request: NormalLoginRequest!): AuthResponse! @goField(forceResolver: true)
+    logout(request: NormalLoginRequest!): AuthResponse! @goField(forceResolver: true)
+    openAuthorize(request: OpenAuthorizeRequest!): AuthResponse! @goField(forceResolver: true)
+    signUp(request: NormalSignUpRequest!): AuthResponse! @goField(forceResolver: true)
 }
 
 input OpenAuthorizeRequest {

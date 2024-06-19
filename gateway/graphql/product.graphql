@@ -1,10 +1,10 @@
 type ProductMutation {
-    create(request: CreateProductRequest!): Boolean!
+    create(request: CreateProductRequest!): Boolean! @goField(forceResolver: true)
 }
 
 type ProductQuery {
-    get(id: ID!): Product
-    list(request: String): ListProductResponse!
+    get(id: ID!): Product @goField(forceResolver: true)
+    list(request: String): ListProductResponse! @goField(forceResolver: true)
 }
 
 input CreateProductRequest {

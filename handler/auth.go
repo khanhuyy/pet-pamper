@@ -18,6 +18,7 @@ type authRepo struct {
 }
 
 func (a *authRepo) OpenAuthorize(ctx context.Context, request model.OpenAuthorizeRequest) (string, error) {
+	//request.
 	return "Token", nil
 }
 

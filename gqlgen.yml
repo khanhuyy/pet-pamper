@@ -6,7 +6,6 @@
 schema: "gateway/graphql/*.graphql"
 
 exec:
-#  layout: follow-schema
   filename: gateway/graphql/api/server_gen.go
   package: api
 
@@ -18,7 +17,7 @@ resolver:
   layout: follow-schema
   dir: gateway/graphql/resolver
   package: resolver
-  filename_template: "{name}.resolver.go"
+  filename_template: "{name}.resolvers.go"
 
 models:
   ID:
@@ -35,3 +34,5 @@ models:
   UUID:
     model:
       - github.com/99designs/gqlgen/graphql.UUID
+  Auth:
+    model: pet-pamper/gateway/model.Auth
